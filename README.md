@@ -3,20 +3,27 @@ Orbweaver Code Sample Project for Candidates
 
 # Goals 
 * To see how you approach problem solving 
-* To see how you structure your code 
+* To see how you write and test code 
 * To see how you interpret requirements
 
 # Setup 
-This is a Ruby on Rails project.  TODO: What else to add here. 
+This is a Ruby on Rails project.  TODO: Anything else to add here?  
 
 ## Installing Ruby  
 You will need to install Ruby version 2.7.4. This is done using a tool called [RVM](https://rvm.io) that separates this new Ruby install from from any other that might be on your system. 
 
-### macOS 
+### macOS or Linux
+```bash
+\curl -sSL https://get.rvm.io | bash -s stable
+rvm install 2.7.4
+```
 
-### Windows 
+### Windows
+* Install cygwin or bash
+* Run the commands from macOS or Linux section above  
 
-### Linux
+For more info on RVM installation, check [here](https://rvm.io/rvm/install)
+
 
 ## Installing Ruby Dependencies
 From the project directory, run the following command. 
@@ -29,7 +36,7 @@ This project is a small scale example of the kind of work we are frequently requ
 
 To complete this effort, the following items are required:
 
-* Build a JSON Schema based on the structure of each CSV row.
+* Build a JSON Schema based on the structure of each CSV row in `spec/csv/sample-part-data.csv`
     - Columns sku -> part_status should be at the top level.
     - Columns image -> 3d_model_iges should be part of an array with key 'images'.
     - Columns eu_rohs_y -> voltage_rating should be part of an array with key 'attributes'. Each entry should be a key/value pair.
