@@ -31,7 +31,7 @@ To complete this effort, the following items are required:
     - Columns sku -> part_status should be at the top level.
     - Columns image -> 3d_model_iges should be part of an array with key 'images'.
     - Columns eu_rohs_y -> voltage_rating should be part of an array with key 'attributes'. Each entry should be a key/value pair.
-* Create a JSON document from each CSV row, validat it using the schema and save it to the file system.
+* Create a JSON document from each CSV row, validate it using the schema and save it to the file system.
 * Write tests to show that your code works as you expect. Your approach to testing is as important to us as your approach to coding.
 
 ### Bonus points 
