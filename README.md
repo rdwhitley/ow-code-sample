@@ -37,18 +37,21 @@ This project is a small scale example of the kind of work we are frequently requ
 To complete this effort, the following items are required:
 
 * Build a JSON Schema based on the structure of each CSV row in `spec/csv/sample-part-data.csv`
-    - Columns sku -> part_status should be at the top level.
-    - Columns image -> 3d_model_iges should be part of an array with key 'images'.
-    - Columns eu_rohs_y -> voltage_rating should be part of an array with key 'attributes'. Each entry should be a key/value pair.
+  * Columns `sku` through `part_status` should be at the top level.
+  * Columns `image` through `3d_model_iges` should be part of an array with key `images`.
+  * Columns `eu_rohs_y` through `voltage_rating` should be part of an array with key `attributes`. Each entry should be a key/value pair.
 * Create a JSON document from each CSV row, validate it using the schema and save it to the file system.
-* Write tests to show that your code works as you expect. Your approach to testing is as important to us as your approach to coding.
+* Write tests to show that your code works as you expect. 
+  * Your approach to testing is as important to us as your approach to coding.
 
 ## Bonus points 
-If you would like to go further than the example above, you can try the following items 
+If you would like to go further than the example above, you can try the following items:
+
 * Configure ActiveRecord / SQLite to save each record to the database
 
 # Coding
-We have stubbed an [RSpec](https://rspec.info) test for you. When you have everything setup correctly, you can run 
+We have stubbed an [RSpec](https://rspec.info) test for you. When you have everything setup correctly, you can run
+
 ```
 rspec
 ```
