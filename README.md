@@ -7,7 +7,7 @@ Orbweaver Code Sample Project for Candidates
 * To see how you interpret requirements
 
 # Setup 
-This is a Ruby on Rails project.  TODO: Anything else to add here?  
+This is a [Ruby on Rails](https://guides.rubyonrails.org/getting_started.html) project. These are the items required to get up and running. 
 
 ## Installing Ruby  
 You will need to install Ruby version 2.7.4. This is done using a tool called [RVM](https://rvm.io) that separates this new Ruby install from from any other that might be on your system. 
@@ -47,16 +47,16 @@ To complete this effort, the following items are required:
 ## Bonus points 
 If you would like to go further than the example above, you can try the following items:
 
-* Configure ActiveRecord / SQLite to save each record to the database
+* Configure [ActiveRecord](https://guides.rubyonrails.org/getting_started.html#mvc-and-you) / SQLite to save each record to the database
 
 # Coding
-We have stubbed an [RSpec](https://rspec.info) test for you. When you have everything setup correctly, you can run
+We have stubbed the first [RSpec](https://rspec.info) test for you in spec/lib/data_transform_service_spec.rb. When you have everything setup correctly, you can run
 
 ```
 rspec
 ```
 
-The last output from that command will be
+The last output from that command will look like 
 ```ruby
 Finished in 0.02701 seconds (files took 1.54 seconds to load)
 1 example, 0 failures
