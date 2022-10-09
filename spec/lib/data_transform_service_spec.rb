@@ -35,7 +35,7 @@ RSpec.describe DataTransformService do
 
     it 'should format a given row to the expected hash format' do
       row = service.getFirstRow(csv_path)
-      expect(JSON::Validator.validate(schema, service.formatHash(row))).to eql(true)
+      expect(JSON::Validator.validate("schema.json", service.formatHash(row))).to eql(true)
     end
 
   end
