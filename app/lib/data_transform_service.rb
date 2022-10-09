@@ -1,5 +1,6 @@
 require 'csv'
 require "json"
+require_relative("../models/part.rb")
 class DataTransformService
 
   # ==== This method does:
@@ -27,6 +28,7 @@ class DataTransformService
         Rails.logger.debug("Processing row: #{csv_row}")
         formatted_row = formatHash(csv_row)
         if JSON::Validator.validate("schema.json", formatted_row)
+          Part.create(formatted_row)
           File.write("storage/row-#{row_counter}.json", JSON.dump(formatted_row))
         end
         row_counter += 1
@@ -62,7 +64,7 @@ class DataTransformService
       "meta_title" => row["meta_title"],
       "part_status" => row["part_status"],
       "images" => [row["image"], row["prod_drawing"], row["datasheet"], row["3d_model_iges"]],
-      "attributes" => [row["eu_rohs_y"], row["china_rohs"], row["reach"], 
+      "part_attributes" => [row["eu_rohs_y"], row["china_rohs"], row["reach"], 
       row["halogen_free"], row["country_of_manufacture"], row["package_qty"], row["primary_pack_type"], 
       row["primary_pack_qty"], row["contact_location_filter"], row["current_rating"], row["dielectric_withstanding_volt"],
       row["material_insulator"], row["material_shield"], row["material_slider"], row["number_of_contacts_filter"], row["operating_temperature_range"],

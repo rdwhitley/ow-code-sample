@@ -7,7 +7,7 @@ RSpec.describe DataTransformService do
   let!(:service) { DataTransformService.new}
   let!(:schema) { schema = {
     "type" => "object",
-    "required" => ["sku","display_pn", "be_product_cat_name", "short_description", "lead_time", "meta_description", "meta_title", "part_status", "images", "attributes"],
+    "required" => ["sku","display_pn", "be_product_cat_name", "short_description", "lead_time", "meta_description", "meta_title", "part_status", "images", "part_attributes"],
     "properties" => {
       "sku" => {"type" => "string"},
       "display_pn" => {"type" => "string"},
@@ -18,7 +18,7 @@ RSpec.describe DataTransformService do
       "meta_title" => {"type" => "string"},
       "part_status" => {"type" => "string"},
       "images" => {"type" => "array"},
-      "attributes" => {"type" => "array"}
+      "part_attributes" => {"type" => "array"}
        }
       }
     }
