@@ -1,5 +1,5 @@
 require 'csv'
-
+require "json"
 class DataTransformService
 
   # ==== This method does:
@@ -25,14 +25,32 @@ class DataTransformService
     CSV.open(file_path, 'r:UTF-8', headers: true) do |csv|
       csv.each do |csv_row|
         Rails.logger.debug("Processing row: #{csv_row}")
-        formatHash(csv_row)
+        formatted_row = formatHash(csv_row)
+        if JSON::Validator.validate("schema.json", formatted_row)
+          File.write("storage/row-#{row_counter}.json", JSON.dump(formatted_row))
+        end
         row_counter += 1
       end
     end
     row_counter
   end
   
-  # Takes a row from the parsed csv and formats to json 
+   # ==== This method does:
+  #
+  #  formats a csv row into the expected schema
+  #
+  # ==== With params:
+  #
+  # @param row <Hash> - Row read from a csv in the form of a hash 
+  #
+  # ==== And returns:
+  #
+  # @return formatted_hash
+  #
+  # ==== And is used like:
+  #
+  # service.formatHash(row)
+  #
   def formatHash(row)
     formatted_hash = {
       "sku" => row["sku"], 
@@ -52,7 +70,24 @@ class DataTransformService
     }
     return formatted_hash
   end
-
+  
+  
+  # ==== This method does:
+  #
+  #  Returns the first row of a csv that has been read
+  #
+  # ==== With params:
+  #
+  # @param file_path <String> - Path to the csv file to process
+  #
+  # ==== And returns:
+  #
+  # @return first_row
+  #
+  # ==== And is used like:
+  #
+  # service.getFirstRow(csv_path)
+  #
   def getFirstRow(file_path)
     csv_row = nil
     CSV.open(file_path, 'r:UTF-8', headers: true) do |csv|

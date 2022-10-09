@@ -1,5 +1,6 @@
 require 'rails_helper'
 require "json-schema"
+require "json"
 RSpec.describe DataTransformService do
 
   let!(:csv_path) { 'spec/csv/sample-part-data.csv'}
@@ -35,6 +36,7 @@ RSpec.describe DataTransformService do
 
     it 'should format a given row to the expected hash format' do
       row = service.getFirstRow(csv_path)
+      File.write("schema.json", JSON.dump(schema))
       expect(JSON::Validator.validate("schema.json", service.formatHash(row))).to eql(true)
     end
 
