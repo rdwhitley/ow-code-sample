@@ -39,3 +39,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "json-schema", "~> 3.0"
+
+gem "json", "~> 2.6"
